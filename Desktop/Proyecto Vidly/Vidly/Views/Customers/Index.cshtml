@@ -16,17 +16,19 @@ else
         <thead>
             <tr>
                 <th scope="col">Customers</th>
+                <th>Membership Type</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-
-                <th scope="row">@Html.ActionLink("John Smith", "Details", new { id = 1 }, null)</th>
-
-            </tr>
-            <tr>
-                <th scope="row">@Html.ActionLink("Mary Williams", "Details", new { id = 2 }, null)</th>
-            </tr>
+          
+                 @foreach (var customer in Model)
+                 {
+                     <tr>
+                         <td>@Html.ActionLink(customer.Name,"Details",new { id= customer.Id} ,null)</td>
+                         <td>@customer.MembershipType.Name</td>
+                     </tr>
+                 }
+                
         </tbody>
     </table>
 }

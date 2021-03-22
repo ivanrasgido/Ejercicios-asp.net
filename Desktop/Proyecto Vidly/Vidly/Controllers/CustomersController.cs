@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,50 +12,35 @@ namespace Vidly.Controllers
     public class CustomersController : Controller
     {
         // GET: Customers
-        
-        
+
+        public ApplicationDbContext _context;
+
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ActionResult Index()
         {
-            var customer = GetCustomers();   
+            var customer = _context.Customers.Include(c => c.MembershipType).ToList();   
             return View(customer);
         }
 
         
         public ActionResult Details(int id)
         {
-            if( id == 1)
-            {
-                var persona1 = new Customer() { Name = "John Smith" };
-                var vista1 = new CustomerViewModel
-                {
-                    Persona = persona1
-                };
-                return View(vista1);
-            }else if( id == 2)
-            {
-                var persona2 = new Customer() { Name = "Mary Williams" };
-                var vista2 = new CustomerViewModel
-                {
-                    Persona = persona2
-                };
-                return View(vista2);
-            }
-            else
-            {
-                 return HttpNotFound();
-            }
+            var customer = _context.Customers.Include(c => c.MembershipType).ToList().SingleOrDefault(c => c.Id == id);
 
+            if (customer == null)
+                return HttpNotFound();
+            return View(customer);
              
         }
 
-        private IEnumerable<Customer> GetCustomers()
-        {
-            return new List<Customer>
-        {
-            new Customer { Id = 1, Name = "John Smith" },
-            new Customer { Id = 2, Name = "Mary Williams" }
-        };
-        }
        
         }
 }

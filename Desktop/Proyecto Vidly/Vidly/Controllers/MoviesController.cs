@@ -12,60 +12,53 @@ namespace Vidly.Controllers
     public class MoviesController : Controller
     {
         // GET: Movies / Random
-       /* public ActionResult Random()
+        /* public ActionResult Random()
+         {
+             var movie = new Movie() { Name = "Shrek!" };
+
+             var customers = new List<Customer>
+             {
+                 new Customer { Name = "Customer 1"},
+                 new Customer { Name = "Customer 2"}
+             };
+
+             var viewModel = new RandomMovieViewModel
+             {
+                 Movie = movie,
+                 Customers = customers
+
+             };
+
+             return View(viewModel);
+             //return Content("Hola mundo");
+             //return HttpNotFound();
+             //return new EmptyResult();
+             //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
+         }*/
+        public ApplicationDbContext _context;
+
+        public MoviesController()
         {
-            var movie = new Movie() { Name = "Shrek!" };
+            _context = new ApplicationDbContext();
+        }
 
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "Customer 1"},
-                new Customer { Name = "Customer 2"}
-            };
-
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-                
-            };
-
-            return View(viewModel);
-            //return Content("Hola mundo");
-            //return HttpNotFound();
-            //return new EmptyResult();
-            //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
-        }*/
-
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ActionResult Index()
         {
-            
-            return View();
+            var movies = _context.Movies.ToList();
+            return View(movies);
         }
 
         public ActionResult Details(int id)
         {
-            if (id == 1)
-            {
-                var pelicula1 = new Movie() { Name = "Shrek" };
-                var vista1 = new MovieViewModel
-                {
-                     Pelicula = pelicula1
-                };
-                return View(vista1);
-            }
-            else if (id == 2)
-            {
-                var pelicula2 = new Movie() { Name = "Wall-e" };
-                var vista2 = new MovieViewModel
-                {
-                    Pelicula = pelicula2
-                };
-                return View(vista2);
-            }
-            else
-            {
+            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+
+            if (movie == null)
                 return HttpNotFound();
-            }
+            return View(movie);
         }
       
 

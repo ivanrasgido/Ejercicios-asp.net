@@ -1,4 +1,4 @@
-﻿@model Vidly.ViewModels.CustomerViewModel
+﻿@model Vidly.Models.Customer
 
 @{
     ViewBag.Title = "Details";
@@ -8,5 +8,17 @@
 @*
     este es el del customers    
 *@
-<h1> @Model.Persona.Name </h1>
+<h1> @Model.Name </h1>
 
+<ul>
+    <li>
+        Membership Type : @Model.MembershipType.Name
+    </li>
+    @if(Model.Birthdate.HasValue)
+    {
+        <li>
+            BirthDate : @Model.Birthdate.Value.ToShortDateString()
+        </li>
+    }
+    
+</ul>

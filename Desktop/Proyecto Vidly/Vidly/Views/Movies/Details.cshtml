@@ -1,4 +1,4 @@
-﻿@model Vidly.ViewModels.MovieViewModel
+﻿@model Vidly.Models.Movie
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,23 @@
 @*
     este es de movie    
 *@
-<h1> @Model.Pelicula.Name </h1>
+<h1> HANGOVER</h1>
+<ul>
+    <li>
+        Genre: @Model.Genre
+    </li>
+    <li>
+        Release Date: @Model.ReleaseDate
+    </li>
+    <li>
+        Data Added: @Model.DateAdded
+    </li>
+    <li>
+        Number in Stock: @Model.NumberInStock
+    </li>
+</ul>
+
+
 
 
 
