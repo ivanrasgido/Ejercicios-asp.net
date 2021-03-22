@@ -38,6 +38,7 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
+            
             return View();
         }
 
@@ -66,6 +67,8 @@ namespace Vidly.Controllers
                 return HttpNotFound();
             }
         }
+      
+
         /*public ActionResult Edit(int id)
         {
             return Content("id=" + id);
@@ -81,10 +84,10 @@ namespace Vidly.Controllers
             return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
         }*/
 
-       /* [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
-        public ActionResult ByReleaseYear(int year , int month)
-        {
-            return Content( year + "/" + month);
-        }*/
+        /* [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
+         public ActionResult ByReleaseYear(int year , int month)
+         {
+             return Content( year + "/" + month);
+         }*/
     }
 }

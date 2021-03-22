@@ -1,4 +1,4 @@
-﻿@model Vidly.ViewModels.CustomerViewModel
+﻿@model IEnumerable<Vidly.Models.Customer>
 @{
     ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,6 +6,12 @@
 
 <h1 style="font-size:5em">Customers</h1>
 
+@if(!Model.Any())
+{
+    <textarea>No hay ninguna persona registrada</textarea>
+}
+else
+{
     <table class="table table­‐bordered table­‐hover">
         <thead>
             <tr>
@@ -23,6 +29,9 @@
             </tr>
         </tbody>
     </table>
+}
+
+    
 
 
     

@@ -15,11 +15,11 @@ namespace Vidly.Controllers
         
         public ActionResult Index()
         {
-            
-            return View();
+            var customer = GetCustomers();   
+            return View(customer);
         }
 
-        [Route("Customers/Customers/{id}")]
+        
         public ActionResult Details(int id)
         {
             if( id == 1)
@@ -47,7 +47,14 @@ namespace Vidly.Controllers
              
         }
 
-        
-
-    }
+        private IEnumerable<Customer> GetCustomers()
+        {
+            return new List<Customer>
+        {
+            new Customer { Id = 1, Name = "John Smith" },
+            new Customer { Id = 2, Name = "Mary Williams" }
+        };
+        }
+       
+        }
 }
