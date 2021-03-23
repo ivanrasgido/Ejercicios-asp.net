@@ -141,3 +141,11 @@ C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.genre1.re
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.populationGenre.resources
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.data.resources
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.requiredNameMovie.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\System.Net.Http.Formatting.dll
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\System.Web.Http.dll
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\System.Web.Http.WebHost.dll
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\System.Net.Http.Formatting.xml
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\System.Web.Http.xml
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\System.Web.Http.WebHost.xml
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\AutoMapper.dll
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\AutoMapper.xml
