@@ -135,4 +135,8 @@ C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.InitialMo
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.AddNameMembershipType.resources
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.AddMembeshipTypeChange.resources
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.AddCustomerBirthdate.resources
-C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.AddthingsToMovie.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.AddMovie.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.genre.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.genre1.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.populationGenre.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.data.resources

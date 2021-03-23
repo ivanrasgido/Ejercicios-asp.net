@@ -211,21 +211,41 @@
     <Compile Include="Migrations\202103221457208_AddCustomerBirthdate.Designer.cs">
       <DependentUpon>202103221457208_AddCustomerBirthdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103221722123_AddthingsToMovie.cs" />
-    <Compile Include="Migrations\202103221722123_AddthingsToMovie.Designer.cs">
-      <DependentUpon>202103221722123_AddthingsToMovie.cs</DependentUpon>
+    <Compile Include="Migrations\202103230031313_AddMovie.cs" />
+    <Compile Include="Migrations\202103230031313_AddMovie.Designer.cs">
+      <DependentUpon>202103230031313_AddMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103230129452_genre.cs" />
+    <Compile Include="Migrations\202103230129452_genre.Designer.cs">
+      <DependentUpon>202103230129452_genre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103230132247_genre1.cs" />
+    <Compile Include="Migrations\202103230132247_genre1.Designer.cs">
+      <DependentUpon>202103230132247_genre1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103230134235_populationGenre.cs" />
+    <Compile Include="Migrations\202103230134235_populationGenre.Designer.cs">
+      <DependentUpon>202103230134235_populationGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103230328513_data.cs" />
+    <Compile Include="Migrations\202103230328513_data.Designer.cs">
+      <DependentUpon>202103230328513_data.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\MovieViewModel.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +311,8 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -336,8 +358,20 @@
     <EmbeddedResource Include="Migrations\202103221457208_AddCustomerBirthdate.resx">
       <DependentUpon>202103221457208_AddCustomerBirthdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103221722123_AddthingsToMovie.resx">
-      <DependentUpon>202103221722123_AddthingsToMovie.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103230031313_AddMovie.resx">
+      <DependentUpon>202103230031313_AddMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103230129452_genre.resx">
+      <DependentUpon>202103230129452_genre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103230132247_genre1.resx">
+      <DependentUpon>202103230132247_genre1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103230134235_populationGenre.resx">
+      <DependentUpon>202103230134235_populationGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103230328513_data.resx">
+      <DependentUpon>202103230328513_data.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
