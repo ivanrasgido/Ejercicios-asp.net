@@ -140,3 +140,4 @@ C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.genre.res
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.genre1.resources
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.populationGenre.resources
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.data.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.requiredNameMovie.resources
