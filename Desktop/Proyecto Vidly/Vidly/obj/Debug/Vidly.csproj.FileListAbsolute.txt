@@ -149,3 +149,6 @@ C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\System.Web.Http.xml
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\System.Web.Http.WebHost.xml
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\AutoMapper.dll
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\AutoMapper.xml
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.seedUsers.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.AddDrivingLicenseToApplicationUser.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.PhoneNumber.resources

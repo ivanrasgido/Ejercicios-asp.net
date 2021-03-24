@@ -9,6 +9,7 @@ using Vidly.Models;
 
 namespace Vidly.Controllers
 {
+    [Authorize]
     public class CustomersController : Controller
     {
         // GET: Customers
