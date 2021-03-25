@@ -20,10 +20,21 @@ namespace Vidly.Controllers.Api
             _context = new ApplicationDbContext();
         }
         //GET /Api / movies
-        public IEnumerable<MovieDto> GetMovies()
+        public IEnumerable<MovieDto> GetMovies(string query = null)
         {
-            return _context.Movies.Include(m => m.Genre).ToList()
-                .Select(Mapper.Map<Movie, MovieDto>);
+            var moviesQuery = _context.Movies.Include(m => m.Genre).Where(m => m.NumberAvailable > 0);
+            if (!String.IsNullOrWhiteSpace(query))
+                moviesQuery = moviesQuery.Where(m => m.Name.Contains(query));
+            return moviesQuery.ToList().Select(Mapper.Map<Movie, MovieDto>);
+
+
+
+            //var moviesQuery = _context.Movies.Include(m => m.Genre).ToList();
+            //return moviesQuery.Where(m => m.Name.Contains(query)).ToList();
+
+            //return _context.Movies.Include(m => m.Genre).ToList()
+            //.Select(Mapper.Map<Movie, MovieDto>);
+            /*<MovieDto>*/
         }
         // GET /Api / movies / 1
         public IHttpActionResult GetMovies(int id)
@@ -37,7 +48,7 @@ namespace Vidly.Controllers.Api
         //POST /Api / movie
         [HttpPost]
         [Authorize(Roles = RoleName.canManageMovies)]
-        public IHttpActionResult CreateMovies(MovieDto movieDto)
+        public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
@@ -52,33 +63,37 @@ namespace Vidly.Controllers.Api
         //PUT /Api /movies / 1
         [HttpPut]
         [Authorize(Roles = RoleName.canManageMovies)]
-        public void UpdateMovie(int id, MovieDto movieDto)
+        public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-            var movieInDb = _context.Customers.SingleOrDefault(m => m.Id == id);
+                return BadRequest();
+            var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
 
             if (movieInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
             
             Mapper.Map(movieDto, movieInDb);
 
 
             _context.SaveChanges();
+
+            return Ok();
         }
 
         //DELETE /Api / movies/1
         [HttpDelete]
         [Authorize(Roles = RoleName.canManageMovies)]
-        public void DeleteMovie(int id)
+        public IHttpActionResult DeleteMovie(int id)
         {
             var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
 
             if (movieInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             _context.Movies.Remove(movieInDb);
             _context.SaveChanges();
+
+            return Ok();
         }
     }
 }

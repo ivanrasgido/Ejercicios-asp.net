@@ -5,8 +5,8 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-left d-flex mx-5" style="padding-left:400px" >
-        <li class="mx-3 mt-3">
+    <ul class="nav navbar-nav navbar-left" style="margin-left:400px;" >
+        <li class="nav-item mt-3 mx-3">
             @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" ,
            style = "color : gray ; text-decoration: none;" })
         </li>

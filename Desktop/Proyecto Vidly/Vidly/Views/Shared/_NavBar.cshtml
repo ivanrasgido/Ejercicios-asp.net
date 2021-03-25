@@ -7,8 +7,11 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <div class="collapse navbar-collapse  " id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll " >
+                <li class="nav-item mt-3 mx-3">
+                    @Html.ActionLink("New Rental","New","Rentals" , new { area = "" }, new { @style = "Color:gray;text-decoration:none;" })
+                </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link " >@Html.ActionLink("Customers", "Index", "Customers",new { area = "" }, new { @style = "Color:gray ; text-decoration:none" } )</a>
                 </li>

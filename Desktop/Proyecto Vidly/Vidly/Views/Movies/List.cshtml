@@ -14,7 +14,7 @@
 <table id="movies" class="table table­‐bordered table­‐hover">
     <thead>
         <tr>
-            <th scope="col">Movies</th>
+            <th>Movies</th>
             <th>Genre</th>
             <th>Delete</th>
         </tr>
@@ -32,7 +32,7 @@
             var table = $("#movies").DataTable({
 
                 ajax: {
-                    url: "/Api/movies",
+                    url: "/api/movies",
                     dataSrc: ""
                 },
                 columns: [
@@ -55,7 +55,7 @@
 
             });
 
-            $("#movies").on("click", ".js-delete", function (e) {
+            $("#movies").on("click", ".js-delete", function () {
 
                 var button = $(this);
 

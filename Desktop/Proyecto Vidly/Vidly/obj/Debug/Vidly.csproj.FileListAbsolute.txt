@@ -152,3 +152,10 @@ C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\AutoMapper.xml
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.seedUsers.resources
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.AddDrivingLicenseToApplicationUser.resources
 C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.PhoneNumber.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\Glimpse.Ado.dll
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\Glimpse.AspNet.dll
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\Glimpse.Core.dll
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\Glimpse.EF6.dll
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\bin\Glimpse.Mvc5.dll
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.AddRental.resources
+C:\Users\admin\Desktop\Proyecto Vidly\Vidly\obj\Debug\Vidly.Migrations.AddNumberAvailableMovie.resources
