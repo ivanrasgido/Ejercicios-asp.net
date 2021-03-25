@@ -42,3 +42,6 @@ textarea {
     color:red;
 }
 
+div.dataTables_wrapper{
+    display:normal !important;
+}

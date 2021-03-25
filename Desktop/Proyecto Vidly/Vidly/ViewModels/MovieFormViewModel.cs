@@ -30,6 +30,7 @@ namespace Vidly.ViewModels
         [Required]
         public byte? NumberInStock { get; set; }
 
+        public byte NumberAvailable { get; set; }
 
         public string Title
         {
@@ -50,6 +51,7 @@ namespace Vidly.ViewModels
             Name = movie.Name;
             ReleaseDate = movie.ReleaseDate;
             NumberInStock = movie.NumberInStock;
+            NumberAvailable = movie.NumberAvailable;
             GenreId = movie.GenreId;
         }
     }
