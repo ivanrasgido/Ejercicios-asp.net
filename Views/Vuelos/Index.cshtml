@@ -1,0 +1,72 @@
+﻿@model IEnumerable<PlataformaDeVuelos.Models.VueloModels>
+@{
+    ViewBag.Title = "Proximos Vuelos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Próximos Vuelos</h2>
+
+<button class="btn"style="background-color:antiquewhite">@Html.ActionLink("Nuevo Vuelo","Alta" , new { @style = "color:white!important; text-decoration:none;"})</button>
+
+<table class="table" id="table">
+    <thead>
+        <tr>
+            <th scope="col">Horario De Llegada</th>
+            <th scope="col">Vuelo</th>
+            <th scope="col">Linea Aerea</th>
+            <th scope="col">Demorado</th>
+            <th scope="col">Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vuelo in Model)
+        {
+            <tr>
+                <th scope="row">@vuelo.HorarioDeLlegada.ToString("HH:mm")</th>
+                <td>@Html.ActionLink(vuelo.NumeroDeVuelo, "Modificar" , new { id =vuelo.Id })</td>
+                <td>@vuelo.LineaAerea</td>
+                @if (vuelo.Demorado == true)
+                {
+                    <td>Si</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+                <td data-vuelo-id="@vuelo.Id" class="js-delete"><button  class="btn btn-primary ">Borrar</button></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+
+
+
+            $("#table").on("click", ".js-delete", function () {
+
+                var button = $(this);
+
+
+                if (confirm("¿Seguro queres borrar este vuelo?")) {
+
+                    $.ajax({
+                        url:"/Api/Vuelos/" + button.attr("data-vuelo-id"),
+                        method:"DELETE",
+                        success: function () {
+                            button.parents("tr").remove();
+                        }
+                    })
+
+                }
+            });
+        });
+    </script>
+
+}

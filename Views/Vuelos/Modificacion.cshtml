@@ -1,0 +1,145 @@
+﻿@model PlataformaDeVuelos.Models.VueloModels
+@{
+    ViewBag.Title = "Modificacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Modificacion de Vuelo</h2>
+
+@using (Html.BeginForm("Guardar", "Vuelos"))
+{
+    @Html.ValidationSummary(true, "Por favor Arregle los errores")
+    <div class="form-group">
+        @Html.LabelFor(v => v.HorarioDeLlegada)
+        @Html.TextBoxFor(v => v.HorarioDeLlegada, new { @class = "form-control" })
+        @Html.ValidationMessageFor(v => v.HorarioDeLlegada)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(v => v.NumeroDeVuelo)
+        @Html.TextBoxFor(v => v.NumeroDeVuelo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(v => v.NumeroDeVuelo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(v => v.LineaAerea)
+        @Html.TextBoxFor(v => v.LineaAerea, new { @class = "form-control" })
+        @Html.ValidationMessageFor(v => v.LineaAerea)
+
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(v => v.Demorado) Demorado
+        </label>
+    </div>
+    @Html.HiddenFor(v => v.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}
+
+
+
+@section scripts
+ {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        $(document).ready(function () {
+
+            var vm = {
+                movieIds: []
+            };
+
+            var customers = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/vuelos?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#customer').typeahead({
+
+                minLength: 3,
+                highlight: true
+            }, {
+                name: 'customers',
+                display: 'name',
+                source: customers
+            }).on("typeahead:select", function (e, customer) {
+
+                vm.customerId = customer.id;
+            });
+
+            var movies = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/vuelos?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+
+            });
+
+            $('#movie').typeahead({
+
+                    minLength: 3,
+                    highlight: true
+                }, {
+                    name: 'movies',
+                    display: 'name',
+                    source: movies
+                }).on("typeahead:select", function (e, movie) {
+
+                    $("#movies").append("<li class='list-group-item'>" + movie.name + "</li>");
+
+                    $("#movie").typeahead("val", "");
+
+                    vm.movieIds.push(movie.id);
+                });
+
+
+            $.validator.addMethod("validCustomer", function () {
+
+                return vm.customerId && vm.customerId !== 0;
+            }, "Please select a valid customer");
+
+            $.validator.addMethod("atLeastOneMovie", function () {
+
+                return vm.movieIds.length > 0;
+            }, "Please select at the least one movie");
+
+           var validator= $("#newRental").validate({
+
+                submithandler: function () {
+
+                    $.ajax({
+                        url: "/api/NewRentals",
+                        method: "post",
+                        data: vm
+                    })
+                        .done(function () {
+                            toastr.success("Rentals successfully recorded.");
+
+                            $("#customer").typeahead("val", "");
+                            $("#movie").typeahead("val", "");
+                            $("#movies").empty();
+
+                            vm = { movieIds: [] }
+
+                            validator.resetForm();
+                        })
+                        .fail(function () {
+                            toastr.error("Somethin unexpected happend");
+                        });
+                    return false;
+                }
+
+            });
+
+
+        });
+
+    </script>
+}

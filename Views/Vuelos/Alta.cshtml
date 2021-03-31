@@ -1,0 +1,40 @@
+﻿@model PlataformaDeVuelos.Models.VueloModels
+@{
+    ViewBag.Title = "Alta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nuevo Vuelo</h2>
+
+@using (Html.BeginForm("Guardar", "Vuelos"))
+{
+    @Html.ValidationSummary(true, "Por favor Arregle los errores")
+    <div class="form-group" >
+        @Html.LabelFor(v => v.HorarioDeLlegada)
+        @Html.TextBoxFor(v => v.HorarioDeLlegada, new { @class = "form-control", placeholder="Ej: dd/mm/aaaa hh:mm:ss" })        
+        @Html.ValidationMessageFor(v =>v.HorarioDeLlegada)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(v => v.NumeroDeVuelo)
+        @Html.TextBoxFor(v => v.NumeroDeVuelo, new { @class = "form-control" , placeholder="Ej: AR 3920"})
+        @Html.ValidationMessageFor(v => v.NumeroDeVuelo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(v => v.LineaAerea)
+        @Html.TextBoxFor(v => v.LineaAerea, new { @class = "form-control" , placeholder="Ingrese linea aerea" })
+        @Html.ValidationMessageFor(v => v.LineaAerea)
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(v => v.Demorado) Demorado
+        </label>
+    </div>
+    @Html.HiddenFor(v => v.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}
