@@ -14,14 +14,14 @@ namespace PlataformaDeVuelos.Models
         [Display(Name = "Numero de Vuelo")]
         public string NumeroDeVuelo { get; set; }
         [Required]
-        [Display( Name ="Horario de Llegada",Prompt ="hola")]
+        [Display( Name ="Horario de Llegada")]
 
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm tt}")]
         public DateTime HorarioDeLlegada { get; set; }
         
        
         [Required]
-        [Display( Name = "Linea Aerea",Prompt ="holis")]
+        [Display( Name = "Linea Aerea")]
         public string LineaAerea { get; set; }
         
         
